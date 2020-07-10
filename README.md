@@ -1,5 +1,5 @@
 # tomcat-redis-failover
-Tomcat-redisson-Redis 연동 환경에서 redis에 장애 발생 시 tomcat에 발생하는 장애를 회피하도록 하여 서비스 중단 시간을 최소화하는 redis 동작 감시 라이브러리
+Tomcat-redisson-Redis 연동 환경에서 redis에 장애 발생 시 tomcat에 발생하는 장애를 회피하도록 하여 서비스 중단 시간을 최소화하는 redis 동작 감시 라이브러리입니다.
 
 ## 의존성
 아래의 라이브러리가 필요합니다.
