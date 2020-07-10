@@ -14,7 +14,7 @@ Tomcat-redisson-Redis 연동 환경에서 redis에 장애 발생 시 tomcat에 �
 
 (2) 아래의 내용을 spring 설정 파일이 있는 디렉토리에 넣습니다.
 
-파일명: context-redis-watcher.xml
+> 파일명: context-redis-watcher.xml
 
     <?xml version="1.0" encoding="UTF-8"?>
     <beans xmlns="http://www.springframework.org/schema/beans"
@@ -27,31 +27,31 @@ Tomcat-redisson-Redis 연동 환경에서 redis에 장애 발생 시 tomcat에 �
 
 (3) 아래의 내용을 properties 파일이 있는 디렉토리에 넣습니다.
 
-파일명: redis-watcher.properties
+> 파일명: redis-watcher.properties
 
     # Redis 서버 호스트명 또는 IP
-    redis.host=*127.0.0.1*
+    redis.host=127.0.0.1
     
     # Redis 서버 포트
-    redis.port=*6379*
+    redis.port=6379
     
     # 톰캣 설치 기본 경로
-    tomcat.basePath=*/.../tomcat*
+    tomcat.basePath=/.../tomcat
     
     # sendmail 서버 호스트 또는 IP
-    alert.mailServerHost=*127.0.0.1*
+    alert.mailServerHost=127.0.0.1
     
     # sendmail 서버 포트
-    alert.mailServerPort=*25*
+    alert.mailServerPort=25
     
     # 서버 장애 알림 메일 수신자 이메일 목록
     # 수신 대상자가 여러 명일 경우 각각을 공백 없이 콤마(,)로 구분하여 나열
-    alert.email=*admin@mydomain.com*
+    alert.email=admin@mydomain.com
     
     # 서버 장애 알림 메일 제목
-    alert.mailTitle=*REDIS 서버 장애 발생 알림*
+    alert.mailTitle=REDIS 서버 장애 발생 알림
     
     # 서버 장애 알림 메일 내용
-    alert.mailBody=*<html><body><p>REDIS 서버에 장애가 발생하였습니다.</p><p>발생한 장애에 대비하기 위해 톰캣 서버의 REDIS 연동 설정을 비활성화하였습니다.</p><p>REDIS 서비스가 복구되면 톰캣 서버의 REDIS 연동 설정을 활성화한 후 재기동하셔야 합니다.</p><p>REDIS 서비스가 정상회된 후 톰캣의 REDIS 연동 설정을 활성화하지 않은 상태에서 톰캣을 재기동하면 자동으로 설정이 활성화되며 자동으로 한번 더 재기동됩니다.</p><p>연속 재기동이 불편한 경우에는 반드시 REDIS 연동 설정을 활성화한 후 재기동하시기 바랍니다.</p></body></html>*
+    alert.mailBody=<html><body><p>REDIS 서버에 장애가 발생하였습니다.</p><p>발생한 장애에 대비하기 위해 톰캣 서버의 REDIS 연동 설정을 비활성화하였습니다.</p><p>REDIS 서비스가 복구되면 톰캣 서버의 REDIS 연동 설정을 활성화한 후 재기동하셔야 합니다.</p><p>REDIS 서비스가 정상회된 후 톰캣의 REDIS 연동 설정을 활성화하지 않은 상태에서 톰캣을 재기동하면 자동으로 설정이 활성화되며 자동으로 한번 더 재기동됩니다.</p><p>연속 재기동이 불편한 경우에는 반드시 REDIS 연동 설정을 활성화한 후 재기동하시기 바랍니다.</p></body></html>
 
 (4) 톰캣 재기동 후 동작 상태를 확인합니다.
