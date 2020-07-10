@@ -36,7 +36,7 @@ Tomcat-redisson-Redis 연동 환경에서 redis에 장애 발생 시 tomcat에 �
     redis.port=6379
     
     # 톰캣 설치 기본 경로
-    tomcat.basePath=/.../tomcat
+    tomcat.basePath=톰캣 설치 경로
     
     # sendmail 서버 호스트 또는 IP
     alert.mailServerHost=127.0.0.1
@@ -54,4 +54,22 @@ Tomcat-redisson-Redis 연동 환경에서 redis에 장애 발생 시 tomcat에 �
     # 서버 장애 알림 메일 내용
     alert.mailBody=<html><body><p>REDIS 서버에 장애가 발생하였습니다.</p><p>발생한 장애에 대비하기 위해 톰캣 서버의 REDIS 연동 설정을 비활성화하였습니다.</p><p>REDIS 서비스가 복구되면 톰캣 서버의 REDIS 연동 설정을 활성화한 후 재기동하셔야 합니다.</p><p>REDIS 서비스가 정상회된 후 톰캣의 REDIS 연동 설정을 활성화하지 않은 상태에서 톰캣을 재기동하면 자동으로 설정이 활성화되며 자동으로 한번 더 재기동됩니다.</p><p>연속 재기동이 불편한 경우에는 반드시 REDIS 연동 설정을 활성화한 후 재기동하시기 바랍니다.</p></body></html>
 
-(4) 톰캣 재기동 후 동작 상태를 확인합니다.
+(4) 아래의 내용을 톰캣 /bin/ 디렉토리에 넣습니다.
+
+> 파일명: wrapper.sh
+
+    #!/bin/bash
+    /톰캣 설치 경로/bin/restart.sh &
+
+> 파일명: restart.sh
+
+    #!/bin/bash
+    export JAVA_HOME="자바 설치 경로"
+    export PATH="자바 설치 경로"
+    cd /톰캣 설치 경로/bin
+    sleep 5
+    ./shutdown.sh
+    sleep 10
+    ./startup.sh
+
+(5) 톰캣 재기동 후 동작 상태를 확인합니다.
